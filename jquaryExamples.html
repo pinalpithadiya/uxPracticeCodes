@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <script>
+            $(document).ready(function () {
+                $("#ab").click(function () {
+                    $(this).hide();
+                })
+                $("#ab1").dblclick(function () {
+                    $(this).hide();
+                })
+                $("#ab2").mouseenter(function () {
+                    $(this).css("color","pink");
+                })
+                $("#ab3").mouseleave(function () {
+                    $(this).text("the mouse has crossed").css("color","pink");
+                })
+                $("input").keyup(function () {
+                    $(this).css("background-color", "lightblue");
+                });
+                $("input").keydown(function () {
+                    $(this).css("background-color", "pink");
+                });
+                $("#hide").click(function () {
+                    $("#ab4").hide();
+                });
+                $("#show").click(function () {
+                    $("#ab4").show();
+                });
+                $("#fade").click(function () {
+                    $("#ab5").fadeToggle("slow"); //fadeTo("slow",0.15)
+                });
+                $("#button").click(function () {
+                    $("div").load("textfile.txt");
+                });
+            });
+
+
+        </script>
+        <p id="ab">this is fading away</p>
+        <p id="ab1">double click event</p>
+        <p id="ab2">mouse enter event</p>
+        <p id="ab3">mouse leave event</p>
+        <p id="ab4">the text to hide and show</p><button id="show">show</button><button id="hide">hide</button>
+        <p id="ab5">the text to fade toggling</p> <button id="fade">fade</button><br>
+        Enter your name: <input type="text"><br>
+        <button id="button">show</button><div></div>
+
+
+    </body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <body>
+        <h2>Make a table based on JSON data.</h2>
+        <table id="demo" style="border: 1px solid black"></table>
+        <script>
+            var arr = "";
+            var table = "<tr><th>Name</th><th>proffession</th><th>lastname</th><th>city</th></tr>";
+            xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    myObj = JSON.parse(this.responseText);
+                    for (i in myObj.colorsArray) {
+                        arr += "<tr><td>"+myObj.colorsArray[i].colorName + "</td><td>" + myObj.colorsArray[i].hexValue + "</td></tr>";
+                    }
+                    document.getElementById("demo").innerHTML = arr;
+                }
+            };
+            xmlhttp.open("GET", "json.txt", true);
+            xmlhttp.send();
+
+        </script>
+
+    </body>
+</html>
+

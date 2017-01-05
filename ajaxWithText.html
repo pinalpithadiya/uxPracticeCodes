@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<html>
+    <body>
+        <p id="demo">
+            "this is the text to be changed"
+        </p>
+        <button type="button" onclick="myfun()">click this</button>
+        <script>
+
+            function myfun() {
+
+                var x;
+                x=new XMLHttpRequest();
+                x.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("demo").innerHTML = this.responseText;
+                    }
+                };
+                    x.open("GET", "textfile.txt", true);
+                    x.send();
+
+                
+            }
+        </script>
+    </body>
+</html>
+
